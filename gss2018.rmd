@@ -49,7 +49,7 @@ This data is from the 2018 General Social Survey. The first blocks of R-code has
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method.!-->
 
-By using variable analysis we will see the relationship between those that believe in the bigbang theory and those that believe in the afterlife.Then I will do a chai-square test. The barchart will show the differences between the two subjects. Then when the fisher test will provides the numerical results.
+By using variable analysis we will see the relationship between those that voted in 2016 and 2012.Then using the data I got from the code from lines 20-30 and do a chai-square test. The barchart will show the differences between the two subjects. Then using the same codes we used for the chai-square test we will use it for the fisher test that will provides the numerical results.
 
 ##Results
 
@@ -112,7 +112,7 @@ Now answer Is belief in the bigbang theory (BIGBANG) independent of belief in th
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method.!-->
 
-By using variable analysis we will see the relationship between those that voted in 2016 and 2012.Then I will do a chai-square test. The barchart will show the differences between the two subjects. Then when the fisher test will provides the numerical results.
+By using variable analysis we will see the relationship between those that believe in the bigbang theory and the afterlife.Then using the data I got from the code from lines 20-30 and do a chai-square test. The barchart will show the differences between the two subjects. Then using the same codes we used for the chai-square test we will use it for the fisher test that will provides the numerical results.
 
 
 ##Results
@@ -175,7 +175,7 @@ This time compare the opinion on death penalty (CAPPUN) with opinion on courts (
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method.!-->
 
-By using variable analysis we will see the relationship between  the opinion on death penalty with opinion on courts. Then I will use the data in the chai-square test.The barchart will show the differences between the two subjects. Then when the fisher test will provides the numerical results.
+By using variable analysis we will see the relationship between those that have an opinion on the death penalty and those that have an opinion on courts.Then using the data I got from the code from lines 20-30 and do a chai-square test. The barchart will show the differences between the two subjects. Then using the same codes we used for the chai-square test we will use it for the fisher test that will provides the numerical results.
 
 ##Results
 
