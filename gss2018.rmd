@@ -1,6 +1,6 @@
 ---
 title: "General Social Survey"
-author: "Your Name"
+author: "Mykela Castillejo"
 date: "Year 2019"
 output: 
   html_document:
@@ -49,6 +49,8 @@ This data is from the 2018 General Social Survey. The first blocks of R-code has
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method.!-->
 
+By using variable analysis we will see the relationship between those that believe in the bigbang theory and those that believe in the afterlife.Then I will do a chai-square test. The barchart will show the differences between the two subjects. Then when the fisher test will provides the numerical results.
+
 ##Results
 
 <!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
@@ -59,13 +61,46 @@ This data is from the 2018 General Social Survey. The first blocks of R-code has
 
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+```{r}
+voted1=c(92.04 , 35.96)
+voted2=c(35.96 , 14.04)
+tabl = rbind(voted1,voted2)
+barchartGC(tabl)
+```
+
+
 #### Numerical Descriptive Results
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+```{r}
+mytab<- xtabs(~VOTE16+VOTE12, data=mydata4)
+rowPerc(mytab) 
+colPerc(mytab)
+```
+
 ### Inferential Results
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
+
+We reject the null hypothesis.
+
+$H_0$ :There is no relationship between those that voted in 2016 and 2012  
+$H_a$ :The ones that voted in 2016 and 2012 are related
+
+```{r}
+chisqtestGC(~VOTE16+VOTE12, data=mydata4)
+
+```
+
+For the fisherexact test we have 
+
+$H_0$ : the odds of the ones that voted in 2016 and 2012 are one to one       
+$H_a$ : the odds of the ones that voted in 2016 and 2012 do not contain number one
+
+```{r}
+fisher.test(mytab)
+```
 
 # Introduction Question 2
 
@@ -77,6 +112,9 @@ Now answer Is belief in the bigbang theory (BIGBANG) independent of belief in th
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method.!-->
 
+By using variable analysis we will see the relationship between those that voted in 2016 and 2012.Then I will do a chai-square test. The barchart will show the differences between the two subjects. Then when the fisher test will provides the numerical results.
+
+
 ##Results
 
 <!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
@@ -87,13 +125,45 @@ Now answer Is belief in the bigbang theory (BIGBANG) independent of belief in th
 
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+```{r}
+barchartGC(~BIGBANG+POSTLIFE, data=mydata4, type = "percent") 
+chisqtestGC(~BIGBANG+POSTLIFE, data=mydata4)
+votetab=xtabs(~BIGBANG+POSTLIFE, data=mydata4)
+fisher.test(votetab)
+```
 #### Numerical Descriptive Results
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+
+```{r}
+mytab<- xtabs(~BIGBANG+POSTLIFE, data=mydata4)
+rowPerc(mytab) 
+colPerc(mytab)
+```
+
 ### Inferential Results
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
+
+We fail to reject the null hypothesis.
+
+$H_0$ :There is no relationship between those that believe in the bigbang and those that believe that in the afterlife  
+$H_a$ :Belief in bigbang and the afterlife are related
+
+```{r}
+chisqtestGC(~BIGBANG+POSTLIFE, data=mydata4)
+
+```
+
+For the fisherexact test we have 
+
+$H_0$ : the odds of believing in the bigbang and the afterlife are one to one     
+$H_a$ : the odds of believing in the bigbang and the afterlife do not contain number one
+
+```{r}
+fisher.test(mytab)
+```
 
 # Introduction Question 3
 
@@ -105,6 +175,8 @@ This time compare the opinion on death penalty (CAPPUN) with opinion on courts (
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method.!-->
 
+By using variable analysis we will see the relationship between  the opinion on death penalty with opinion on courts. Then I will use the data in the chai-square test.The barchart will show the differences between the two subjects. Then when the fisher test will provides the numerical results.
+
 ##Results
 
 <!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
@@ -115,16 +187,51 @@ This time compare the opinion on death penalty (CAPPUN) with opinion on courts (
 
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+```{r}
+barchartGC(~CAPPUN+COURTS, data=mydata4, type = "percent") 
+chisqtestGC(~CAPPUN+COURTS, data=mydata4)
+votetab=xtabs(~CAPPUN+COURTS, data=mydata4)
+fisher.test(votetab)
+```
+
 #### Numerical Descriptive Results
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+
+```{r}
+mytab<- xtabs(~CAPPUN+COURTS, data=mydata4)
+rowPerc(mytab) 
+colPerc(mytab)
+```
+
+
 ### Inferential Results
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
+
+We fail to reject the null hypothesis.
+
+$H_0$ :There is no relationship between those that opinion on the death penalty and courts    
+$H_a$ :The opinion on the death penalty and courts are related
+
+```{r}
+chisqtestGC(~CAPPUN+COURTS, data=mydata4)
+
+```
+
+For the fisherexact test we have 
+
+$H_0$ : The opinion on the death penalty and courts are one to one       
+$H_a$ : The opinion on the death penalty and courts do not contain number one
+
+```{r}
+fisher.test(mytab)
+```
 
 
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
 
+After reviewing the data of the three questions the first question has no relationship it stays the same. For the second question I have found that there is relationship because the p-value is between 1 and zero. The third question has a relationship the p-value is also below zero. 
